@@ -1,6 +1,7 @@
 package com.hardik.auth.controller;
 
 import com.hardik.auth.CustomUserDetails;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -23,9 +24,11 @@ class AuthController {
     }
 
     @PostMapping("/register")
-    public String register(@RequestParam String username, @RequestParam String password) {
+    public ResponseEntity<String> register(@RequestParam String username, @RequestParam String password) {
         String user = customUserDetails.newUser(username, password);
 
-        return "name: " + user;
+        String res = "name: " + user;
+
+        return ResponseEntity.ok(res);
     }
 }

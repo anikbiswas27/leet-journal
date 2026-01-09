@@ -1,0 +1,14 @@
+CREATE TABLE IF NOT EXISTS users (
+    id INT NOT NULL GENERATED ALWAYS AS IDENTITY,
+    username VARCHAR(200) NOT NULL,
+    password VARCHAR(200) NOT NULL,
+    enabled boolean NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS authorities (
+    id INT NOT NULL GENERATED ALWAYS AS IDENTITY,
+    username VARCHAR(45) NOT NULL,
+    authority VARCHAR(45) NOT NULL,
+    PRIMARY KEY (id)
+);
