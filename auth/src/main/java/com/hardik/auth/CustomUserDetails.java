@@ -1,6 +1,7 @@
 package com.hardik.auth;
 
 import com.hardik.auth.repository.AuthRepository;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -21,12 +22,12 @@ public class CustomUserDetails {
         this.jdbcUserDetailsManager = jdbcUserDetailsManager;
     }
 
-    public String newUser(String username, String password) throws UsernameNotFoundException {
+    public ResponseEntity<String> newUser(String username, String password) throws UsernameNotFoundException {
 
         boolean existingUser = jdbcUserDetailsManager.userExists(username);
         IO.println("User: " + existingUser);
         if(existingUser) {
-            return loginUser();
+            return ResponseEntity.ofNullable("User already exists");
         }
 
         UserDetails user = User.builder()
@@ -37,10 +38,6 @@ public class CustomUserDetails {
 
         jdbcUserDetailsManager.createUser(user);
 
-        return user.getUsername();
-    }
-
-    public String loginUser() {
-        return "ok";
+        return ResponseEntity.ok(user.getUsername());
     }
 }

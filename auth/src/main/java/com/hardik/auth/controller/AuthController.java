@@ -26,19 +26,9 @@ class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestParam String username, @RequestParam String password) {
-        String user = customUserDetails.newUser(username, password);
 
-        String res = "name: " + user;
 
-        return ResponseEntity.ok(res);
+        return customUserDetails.newUser(username, password);
     }
 
-    @PostMapping("/signin")
-    public ResponseEntity<String> signin(@RequestParam String username, @RequestParam String password) {
-        String user = customUserDetails.newUser(username, password);
-
-        String res = "name: " + user;
-
-        return ResponseEntity.ok(res);
-    }
 }
