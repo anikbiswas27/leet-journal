@@ -24,8 +24,8 @@ public class GatewayApplication {
     @Order(Ordered.HIGHEST_PRECEDENCE)
     RouterFunction<ServerResponse> backendRoutes(){
         return route ()
-                .before(BeforeFilterFunctions.uri("http://localhost:8001"))
-                .before(BeforeFilterFunctions.rewritePath("problems/", "/"))
+                .before(BeforeFilterFunctions.uri("http://localhost:8001/"))
+                .before(BeforeFilterFunctions.rewritePath("/problems/", "/"))
                 .filter(TokenRelayFilterFunctions.tokenRelay())
                 .GET("/problems/**", http())
                 .build();
