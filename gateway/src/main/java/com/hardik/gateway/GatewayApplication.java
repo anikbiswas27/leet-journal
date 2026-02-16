@@ -22,16 +22,6 @@ public class GatewayApplication {
 
     @Bean
     @Order(Ordered.HIGHEST_PRECEDENCE)
-    RouterFunction<ServerResponse> mailRoute(){
-        return route ()
-                .before(BeforeFilterFunctions.uri("http://localhost:8002/"))
-                .before(BeforeFilterFunctions.rewritePath("/mail/", "/"))
-                .filter(TokenRelayFilterFunctions.tokenRelay())
-                .GET("/mail/**", http())
-                .build();
-    }
-
-    @Bean
     RouterFunction<ServerResponse> backendRoutes(){
         return route ()
                 .before(BeforeFilterFunctions.uri("http://localhost:8001/"))
@@ -41,5 +31,13 @@ public class GatewayApplication {
                 .build();
     }
 
-
+    @Bean
+    RouterFunction<ServerResponse> mailRoute(){
+        return route ()
+                .before(BeforeFilterFunctions.uri("http://localhost:8002/"))
+                .before(BeforeFilterFunctions.rewritePath("/mail/", "/"))
+                .filter(TokenRelayFilterFunctions.tokenRelay())
+                .GET("/mail/**", http())
+                .build();
+    }
 }
