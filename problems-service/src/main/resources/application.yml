@@ -1,17 +1,17 @@
+server:
+  port: 8001
 spring:
   application:
     name: problems-service
-  datasource:
-    url: jdbc:postgresql://localhost:5432/db
-    username: user
-    password: pass
   security:
     oauth2:
       resourceserver:
         jwt:
           issuer-uri: http://localhost:8000
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db
+    username: user
+    password: pass
   sql:
     init:
       mode: always
-server:
-  port: 8001
