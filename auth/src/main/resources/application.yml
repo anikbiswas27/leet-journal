@@ -3,31 +3,6 @@ server:
 spring:
   application:
     name: auth
-  security:
-    oauth2:
-      authorizationserver:
-        client:
-          gateway:
-            registration:
-              client-id: "client"
-              client-secret: "{noop}secret"
-              client-authentication-methods:
-                - "client_secret_basic"
-              authorization-grant-types:
-                - "authorization_code"
-                - "refresh_token"
-                - "client_credentials"
-              redirect-uris:
-                - "http://127.0.0.1:9000/login/oauth2/code/proxy-client-oidc"
-                - "http://127.0.0.1:9000/authorized"
-              post-logout-redirect-uris:
-                - "http://127.0.0.1:9000/logged-out"
-              scopes:
-                - "openid"
-                - "profile"
-                - "user.read"
-                - "user.write"
-            require-authorization-consent: true
   datasource:
     url: jdbc:postgresql://localhost:5432/db
     username: user
