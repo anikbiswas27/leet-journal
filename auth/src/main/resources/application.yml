@@ -16,20 +16,21 @@ spring:
                 - "authorization_code"
                 - "refresh_token"
               redirect-uris:
-                - "http://127.0.0.1:8000/login/oauth2/code/spring"
+                - "http://127.0.0.1:9000/login/oauth2/code/spring"
               scopes:
                 - "user.read"
                 - "user.write"
                 - "openid"
             require-authorization-consent: true
-
-
-
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db
+    username: user
+    password: pass
   sql:
     init:
       mode: always
 server:
-  port: 8002
+  port: 8000
 logging:
   level:
     org.springframework.security: TRACE

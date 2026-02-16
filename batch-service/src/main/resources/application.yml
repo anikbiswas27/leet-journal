@@ -5,9 +5,9 @@ spring:
     init:
       mode: always
   datasource:
-    url: jdbc:postgresql://SUPER-BUSH
-    username: owner
-    password: DONTSTEALMYPASS
+    url: jdbc:postgresql://localhost:5432/db
+    username: user
+    password: pass
 #  batch:
 #    jdbc:
 #      initialize-schema: "always"

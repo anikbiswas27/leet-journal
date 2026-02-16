@@ -10,19 +10,16 @@ spring:
             client-id: client
             client-secret: secret
             authorization-grant-type: authorization_code
-            client-authentication-method: "client_secret_basic"
-            redirect-uri: "http://127.0.0.1:8002/login/oauth2/code/{registrationId}"
+            client-authentication-method: client_secret_basic
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
             scope:
               - "user.read"
               - "openid"
         provider:
           spring:
-            issuer-uri: http://localhost:8002
-  threads:
-    virtual:
-      enabled: true
+            issuer-uri: ${AUTH_SERVER_URI:http://localhost:8000}
 server:
-  port: 8000
+  port: 9000
 logging:
   level:
     org:

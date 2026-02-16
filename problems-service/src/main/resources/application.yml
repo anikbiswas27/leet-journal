@@ -2,8 +2,16 @@ spring:
   application:
     name: problems-service
   datasource:
-    url: jdbc:postgresql://SUPER-BUSH
-    username: owner
-    password: DONTSTEALMYPASS
+    url: jdbc:postgresql://localhost:5432/db
+    username: user
+    password: pass
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8000
+  sql:
+    init:
+      mode: always
 server:
-  port: 8000
+  port: 8001
