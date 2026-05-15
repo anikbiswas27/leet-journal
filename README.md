@@ -117,7 +117,7 @@ Repeat the same pattern for the other services.
 - `GET http://localhost:9000/mail/mime?to=...&subject=...&text=...`
 - `GET http://localhost:9000/ai/chat?prompt=...`
 
-## Documentation
+## Developer Documentation
 
 - [Contributing Guide](CONTRIBUTING.md)
 - [Project Setup Guide](SETUP.md)

@@ -48,6 +48,7 @@ git push origin feature-name
 - Update documentation when setup or behavior changes.
 - Test your changes whenever practical before opening a PR.
 - Pull requests for unassigned issues are allowed, but may be closed if a better solution already exists or the issue has already been assigned.
+- Mention the related issue number in pull requests using `#issue-number`.
 
 ## Small Changes
 
